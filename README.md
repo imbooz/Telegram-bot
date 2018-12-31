@@ -1,2 +1,2 @@
-# telegram-bot
-A bot to help me with my online courses
+# online-course-bot
+My assistant in making my online lessons from English
