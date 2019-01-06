@@ -38,12 +38,14 @@ dper.add_handler(ids_handler)
 def  broadcast(bot, update):
 	user_ids = users.file_with_ids()
 	msg_txt = update.message.text
-	if update.message.from_user.id == 137786647:
-		for user_id in user_ids:
-			try:
-				bot.send_message(chat_id=user_id, text=msg_txt[10:])
-			except Exception:
-				pass
+	
+	if len(msg_txt.split()) > 1:
+		if update.message.from_user.id == 137786647:
+			for user_id in user_ids:
+				try:
+					bot.send_message(chat_id=user_id, text=msg_txt[10:])
+				except Exception:
+					pass
 
 
 broadcast_handler = CH('broadcast', broadcast)
