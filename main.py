@@ -38,7 +38,7 @@ dper.add_handler(ids_handler)
 def  broadcast(bot, update):
 	user_ids = users.file_with_ids()
 	msg_txt = update.message.text
-	
+
 	if len(msg_txt.split()) > 1:
 		if update.message.from_user.id == 137786647:
 			for user_id in user_ids:
@@ -46,6 +46,10 @@ def  broadcast(bot, update):
 					bot.send_message(chat_id=user_id, text=msg_txt[10:])
 				except Exception:
 					pass
+		else:
+			bot.send_message(chat_id=update.message.chat_id, text="Sorry you don't have access to this command")
+	else:
+		bot.send_message(chat_id=update.message.chat_id, text="Should contain text to broadcast")
 
 
 broadcast_handler = CH('broadcast', broadcast)
