@@ -12,9 +12,18 @@ def file_with_ids():
 
 list_for_ids = file_with_ids()
 
+
 def save_ids(user_id):
 	ids_list = list_for_ids
 	ids_list.update([user_id])
+	file = open(file_destination, 'wb')
+	pickle.dump(ids_list, file)
+	file.close()
+
+
+def remove_ids(user_id):
+	ids_list = list_for_ids
+	ids_list.remove(user_id)
 	file = open(file_destination, 'wb')
 	pickle.dump(ids_list, file)
 	file.close()

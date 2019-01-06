@@ -45,6 +45,7 @@ def  broadcast(bot, update):
 				try:
 					bot.send_message(chat_id=user_id, text=msg_txt[10:])
 				except Exception:
+					users.remove_ids(user_id)
 					pass
 		else:
 			bot.send_message(chat_id=update.message.chat_id, text="Sorry you don't have access to this command")
