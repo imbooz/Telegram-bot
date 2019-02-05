@@ -25,8 +25,9 @@ def start(bot, update):
 		[KeyboardButton("Til kurslari 📚"), KeyboardButton("Dasturlash kurslari 👨🏻‍💻")],
 	]
 	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
-	update.message.reply_text("Salom siz bu bot orqali quyidagi yo'nalishlarni tanlashingiz mumkin: ",
-							   reply_markup=reply_markup)
+	welcome_txt = "Salom! 👋\nBeruny Academy rasmiy botiga 🤖 xush kelibsiz, sizni bu yerda ko'rganimdan mamnunman! 🤝 \n\n"\
+				  "Siz bu bot orqali quyidagi yo'nalishlarni tanlashingiz mumkin:"
+	update.message.reply_text(welcome_txt, reply_markup=reply_markup)
 	users.save_ids(update.message.chat_id)
 	global current_position
 	current_position = "Home"
@@ -51,7 +52,7 @@ def til_kurslari(bot, update):
 def dasturlash_kurslari(bot, update):
 	keyboard = [
 		[KeyboardButton("Python 🐍")],
-		[KeyboardButton("Java 🍵")],
+		[KeyboardButton("JavaScript 🔰")],
 		[KeyboardButton("Ortga ⬅️"), KeyboardButton("Bosh menyu 🏠")]
     ]
 	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
@@ -122,7 +123,6 @@ def umid_elementary(bot, update):
 	current_position = "UmidE"
 
 
-
 def salim_ingliz_tili_darajalar(bot, update):
 	keyboard = [
 		[KeyboardButton("Beginner 👶"),],
@@ -144,12 +144,13 @@ def salim_ingliz_tili_darajalar(bot, update):
 
 
 
-
-
+def bosh_menyu(bot, update):
+	bot.send_message(chat_id=update.message.chat_id, text="Bosh menyu 🏠")
+	start(bot, update)
 
 
 def ortga(bot, update):
-	if current_position == "Teachers":
+	elif current_position == "Teachers":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
 		til_kurslari(bot, update)
 	elif current_position == "Levels":
@@ -185,7 +186,9 @@ def tanlovlar(bot, update):
 	elif "Dasturlash kurslari 👨🏻‍💻" == msg_txt:
 		dasturlash_kurslari(bot, update)
 	elif "Ortga ⬅️" == msg_txt:
-		ortga(bot, update) 
+		ortga(bot, update)
+	elif "Bosh menyu 🏠" == msg_txt:
+		bosh_menyu(bot, update) 
 
 dper.add_handler(MH(Filters.text, tanlovlar))
 
