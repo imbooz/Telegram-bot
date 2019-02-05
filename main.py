@@ -150,7 +150,7 @@ def bosh_menyu(bot, update):
 
 
 def ortga(bot, update):
-	elif current_position == "Teachers":
+	if current_position == "Teachers":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
 		til_kurslari(bot, update)
 	elif current_position == "Levels":
