@@ -51,8 +51,8 @@ def til_kurslari(bot, update):
 
 def dasturlash_kurslari(bot, update):
 	keyboard = [
-		[KeyboardButton("Python 🐍")],
 		[KeyboardButton("JavaScript 🔰")],
+		[KeyboardButton("Python 🐍")],
 		[KeyboardButton("Ortga ⬅️"), KeyboardButton("Bosh menyu 🏠")]
     ]
 	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
@@ -115,7 +115,8 @@ def umid_elementary(bot, update):
 		[InlineKeyboardButton("3-Dars", callback_data="ue3"),
 		 InlineKeyboardButton("4-Dars", callback_data="ue4")],
 		[InlineKeyboardButton("5-Dars", callback_data="ue5"),
-		 InlineKeyboardButton("6-Dars", callback_data="ue6")]
+		 InlineKeyboardButton("6-Dars", callback_data="ue6")],
+		[InlineKeyboardButton("7-Dars", callback_data="ue7")]
 	]
 	reply_markup = InlineKeyboardMarkup(InlineKeyboard)
 	update.message.reply_text("Quyidagi darslar ro'yxatidan keraklisini tanlang:", reply_markup=reply_markup)
@@ -123,15 +124,37 @@ def umid_elementary(bot, update):
 	current_position = "UmidE"
 
 
-def salim_ingliz_tili_darajalar(bot, update):
+def salim_ingliz_tili_darajalar(bot, update):  # Should be made changes
 	keyboard = [
-		[KeyboardButton("Beginner 👶"),],
+		[InlineKeyboardButton("Tanishuv 👋", callback_data="tanishuv"),],
 	]
-	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
+	reply_markup = InlineKeyboardMarkup(keyboard, resize_keyboard=True)
 	update.message.reply_text("Mavjud ingliz tili darajalaridan birini tanlang:",
 							  reply_markup=reply_markup)
 	global current_position
 	current_position = "Levels"
+
+
+def javascript(bot, update):
+	InlineKeyboard = [
+		[InlineKeyboardButton("1-Dars", callback_data="js1"),
+		 InlineKeyboardButton("2-Dars", callback_data="js2")],
+		[InlineKeyboardButton("3-Dars", callback_data="js3"),
+		 InlineKeyboardButton("4-Dars", callback_data="js4")],
+		[InlineKeyboardButton("5-Dars", callback_data="js5"),
+		 InlineKeyboardButton("6-Dars", callback_data="js6")],
+		[InlineKeyboardButton("7-Dars", callback_data="js7"),
+		 InlineKeyboardButton("8-Dars", callback_data="js8")],
+		[InlineKeyboardButton("9-Dars", callback_data="js9"),
+		 InlineKeyboardButton("10-Dars", callback_data="js10")],
+		[InlineKeyboardButton("Davomi ⏩", callback_data="jsnext1")]
+	]
+	reply_markup = InlineKeyboardMarkup(InlineKeyboard)
+	update.message.reply_text("Bu darslar Farxod Dadajonov tomonidan tuzilgan va @virtualdars kanalidan olingan!\n"\
+							  "Quyidagi darslar ro'yxatidan keraklisini tanlang:", 
+		reply_markup=reply_markup)
+	global current_position
+	current_position = "JavaScript"
 
 """
 
@@ -162,6 +185,9 @@ def ortga(bot, update):
 	elif current_position == "Coding" or current_position == "Langs":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
 		start(bot, update)
+	elif current_position == "JavaScript":
+		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
+		start(bot, update)
 
 
 def tanlovlar(bot, update):
@@ -179,12 +205,12 @@ def tanlovlar(bot, update):
 		umid_elementary(bot, update)
 	elif "Shosalim Bakhtiyorov 👨🏻‍🏫" == msg_txt:
 		salim_ingliz_tili_darajalar(bot, update)
-	elif "Rus tili "  == msg_txt:
-		pass
-	elif "Python 🐍" == msg_txt:
-		pass
 	elif "Dasturlash kurslari 👨🏻‍💻" == msg_txt:
 		dasturlash_kurslari(bot, update)
+	elif "JavaScript 🔰" == msg_txt:
+		javascript(bot, update)
+	elif "Python 🐍" == msg_txt:
+		pass
 	elif "Ortga ⬅️" == msg_txt:
 		ortga(bot, update)
 	elif "Bosh menyu 🏠" == msg_txt:
@@ -495,7 +521,7 @@ def darsalar_uchun_query(bot, update):
 	elif query.data == "ue7":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/BerunyBeginner/57") # Things should be continued from here to the rest
+		bot.send_video(query.message.chat_id, "https://t.me/BerunyBeginner/410") # Things should be continued from here to the rest
 	elif query.data == "ue8":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
@@ -594,6 +620,355 @@ def darsalar_uchun_query(bot, update):
 							)
 
 	# Query responder for Umid's elementary lessons ends
+
+	# Query responder for my introduction video
+
+	if query.data == "tanishuv":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/testberuny/2")
+
+
+	# Query responder for JS lessons starts
+
+	InlineKeyboardJS = [
+		[InlineKeyboardButton("1-Dars", callback_data="js1"),
+		 InlineKeyboardButton("2-Dars", callback_data="js2")],
+		[InlineKeyboardButton("3-Dars", callback_data="js3"),
+		 InlineKeyboardButton("4-Dars", callback_data="js4")],
+		[InlineKeyboardButton("5-Dars", callback_data="js5"),
+		 InlineKeyboardButton("6-Dars", callback_data="js6")],
+		[InlineKeyboardButton("7-Dars", callback_data="js7"),
+		 InlineKeyboardButton("8-Dars", callback_data="js8")],
+		[InlineKeyboardButton("9-Dars", callback_data="js9"),
+		 InlineKeyboardButton("10-Dars", callback_data="js10")],
+		[InlineKeyboardButton("Davomi ⏩", callback_data="jsnext1")]
+	]
+	reply_markup_js = InlineKeyboardMarkup(InlineKeyboardJS)
+
+	InlineKeyboardJS1 = [
+		[InlineKeyboardButton("11-Dars 1-Qism", callback_data="js11a")],
+		[InlineKeyboardButton("11-Dars (2)", callback_data="js11b"),
+		 InlineKeyboardButton("12-Dars", callback_data="js12")],
+		[InlineKeyboardButton("13-Dars", callback_data="js13"),
+		 InlineKeyboardButton("14-Dars", callback_data="js14")],
+		[InlineKeyboardButton("15-Dars", callback_data="js15"),
+		 InlineKeyboardButton("16-Dars", callback_data="js16")],
+		[InlineKeyboardButton("17-Dars", callback_data="js17"),
+		 InlineKeyboardButton("18-Dars", callback_data="js18")],
+		[InlineKeyboardButton("19-Dars", callback_data="js19"),
+		 InlineKeyboardButton("20-Dars", callback_data="js20")],
+		[InlineKeyboardButton("Avvalgisi ⏪", callback_data="jsprev1"),
+		 InlineKeyboardButton("Davomi ⏩", callback_data="jsnext2")]
+	]
+	reply_markup_js1 = InlineKeyboardMarkup(InlineKeyboardJS1)
+
+	InlineKeyboardJS2 = [
+		[InlineKeyboardButton("21-Dars", callback_data="js21"),
+		 InlineKeyboardButton("22-Dars", callback_data="js22")],
+		[InlineKeyboardButton("23-Dars", callback_data="js23"),
+		 InlineKeyboardButton("24-Dars", callback_data="js24")],
+		[InlineKeyboardButton("25-Dars 1-Qism", callback_data="js25a"),],
+		[InlineKeyboardButton("25-Dars (2)", callback_data="js25b"),
+		 InlineKeyboardButton("26-Dars", callback_data="js26")],
+		[InlineKeyboardButton("27-Dars", callback_data="js27"),
+		 InlineKeyboardButton("28-Dars", callback_data="js28")],
+		[InlineKeyboardButton("29-Dars", callback_data="js29"),
+		 InlineKeyboardButton("30-Dars", callback_data="js30")],
+		[InlineKeyboardButton("Avvalgisi ⏪", callback_data="jsprev2"),
+		 InlineKeyboardButton("Davomi ⏩", callback_data="jsnext3")]
+	]
+	reply_markup_js2 = InlineKeyboardMarkup(InlineKeyboardJS2)
+
+	InlineKeyboardJS3 = [
+		[InlineKeyboardButton("31-Dars", callback_data="js31"),
+		 InlineKeyboardButton("32-Dars", callback_data="js32")],
+		[InlineKeyboardButton("33-Dars", callback_data="js33"),
+		 InlineKeyboardButton("34-Dars", callback_data="js34")],
+		[InlineKeyboardButton("35-Dars", callback_data="js35"),
+		 InlineKeyboardButton("36-Dars", callback_data="js36")],
+		[InlineKeyboardButton("37-Dars", callback_data="js37"),
+		 InlineKeyboardButton("38-Dars", callback_data="js38")],
+		[InlineKeyboardButton("39-Dars", callback_data="js39"),
+		 InlineKeyboardButton("40-Dars", callback_data="js40")],
+		[InlineKeyboardButton("Avvalgisi ⏪", callback_data="jsprev3"),
+		 InlineKeyboardButton("Davomi ⏩", callback_data="jsnext4")]
+	]
+	reply_markup_js3 = InlineKeyboardMarkup(InlineKeyboardJS3)
+
+	InlineKeyboardJS4 = [
+		[InlineKeyboardButton("41-Dars", callback_data="js41"),
+		 InlineKeyboardButton("42-Dars", callback_data="js42")],
+		[InlineKeyboardButton("43-Dars", callback_data="js43"),
+		 InlineKeyboardButton("44-Dars", callback_data="js44")],
+		[InlineKeyboardButton("45-Dars", callback_data="js45"),
+		 InlineKeyboardButton("46-Dars", callback_data="js46")],
+		[InlineKeyboardButton("47-Dars", callback_data="js47"),
+		 InlineKeyboardButton("48-Dars", callback_data="js48")],
+		[InlineKeyboardButton("49-Dars", callback_data="js49"),
+		 InlineKeyboardButton("50-Dars", callback_data="js50")],
+		[InlineKeyboardButton("Avvalgisi ⏪", callback_data="jsprev4"),]
+	]
+	reply_markup_js4 = InlineKeyboardMarkup(InlineKeyboardJS4)
+
+
+
+	if query.data == "js1":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/165")
+	elif query.data == "js2":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/168")
+	elif query.data == "js3":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/169")
+	elif query.data == "js4":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/170")
+	elif query.data == "js5":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/171")
+	elif query.data == "js6":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/172")
+	elif query.data == "js7":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/173")
+	elif query.data == "js8":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/174")
+	elif query.data == "js9":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/175")
+	elif query.data == "js10":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/176")
+	elif query.data == "js11a":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/177")
+	elif query.data == "js11b":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/178")
+	elif query.data == "js12":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/179")
+	elif query.data == "js13":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/181")
+	elif query.data == "js14":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/182")
+	elif query.data == "js15":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/183")
+	elif query.data == "js16":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/184")
+	elif query.data == "js17":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/185")
+	elif query.data == "js18":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/186")
+	elif query.data == "js19":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/187")
+	elif query.data == "js20":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/188")
+	elif query.data == "js21":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/189")
+	elif query.data == "js22":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/190")
+	elif query.data == "js23":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/191")
+	elif query.data == "js24":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/192")
+	elif query.data == "js25a":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/193")
+	elif query.data == "js25b":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/194")
+	elif query.data == "js26":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/195")
+	elif query.data == "js27":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/196")
+	elif query.data == "js28":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/198")
+	elif query.data == "js29":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/199")
+	elif query.data == "js30":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/200")
+	elif query.data == "js31":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/201")
+	elif query.data == "js32":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/202")
+	elif query.data == "js33":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/203")
+	elif query.data == "js34":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/204")
+	elif query.data == "js35":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/205")
+	elif query.data == "js36":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/206")
+	elif query.data == "js37":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/207")
+	elif query.data == "js38":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/208")
+	elif query.data == "js39":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/209")
+	elif query.data == "js40":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/210")
+	elif query.data == "js41":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/211")
+	elif query.data == "js42":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/212")
+	elif query.data == "js43":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/213")
+	elif query.data == "js44":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/214")
+	elif query.data == "js45":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/215")
+	elif query.data == "js46":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/216")
+	elif query.data == "js47":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/217")
+	elif query.data == "js48":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/218")
+	elif query.data == "js49":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/219")
+	elif query.data == "js50":
+		sending(bot, update)
+		bot.send_chat_action(query.message.chat_id, "upload_video")
+		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/220")
+	elif query.data == "jsnext1":
+		bot.edit_message_text(text="Quyidagi darslar ro'yxatidan keraklisini tanlang:",
+							  chat_id=update.callback_query.message.chat_id,
+							  message_id=update.callback_query.message.message_id,
+							  reply_markup=reply_markup_js1
+							)
+	elif query.data == "jsnext2":
+		bot.edit_message_text(text="Quyidagi darslar ro'yxatidan keraklisini tanlang:",
+							  chat_id=update.callback_query.message.chat_id,
+							  message_id=update.callback_query.message.message_id,
+							  reply_markup=reply_markup_js2
+							)
+	elif query.data == "jsnext3":
+		bot.edit_message_text(text="Quyidagi darslar ro'yxatidan keraklisini tanlang:",
+							  chat_id=update.callback_query.message.chat_id,
+							  message_id=update.callback_query.message.message_id,
+							  reply_markup=reply_markup_js3
+							)
+	elif query.data == "jsnext4":
+		bot.edit_message_text(text="Quyidagi darslar ro'yxatidan keraklisini tanlang:",
+							  chat_id=update.callback_query.message.chat_id,
+							  message_id=update.callback_query.message.message_id,
+							  reply_markup=reply_markup_js4
+							)
+	elif query.data == "jsprev1":
+		bot.edit_message_text(text="Quyidagi darslar ro'yxatidan keraklisini tanlang:",
+							  chat_id=update.callback_query.message.chat_id,
+							  message_id=update.callback_query.message.message_id,
+							  reply_markup=reply_markup_js
+							)
+	elif query.data == "jsprev2":
+		bot.edit_message_text(text="Quyidagi darslar ro'yxatidan keraklisini tanlang:",
+							  chat_id=update.callback_query.message.chat_id,
+							  message_id=update.callback_query.message.message_id,
+							  reply_markup=reply_markup_js1
+							)
+	elif query.data == "jsprev3":
+		bot.edit_message_text(text="Quyidagi darslar ro'yxatidan keraklisini tanlang:",
+							  chat_id=update.callback_query.message.chat_id,
+							  message_id=update.callback_query.message.message_id,
+							  reply_markup=reply_markup_js2
+							)
+	elif query.data == "jsprev4":
+		bot.edit_message_text(text="Quyidagi darslar ro'yxatidan keraklisini tanlang:",
+							  chat_id=update.callback_query.message.chat_id,
+							  message_id=update.callback_query.message.message_id,
+							  reply_markup=reply_markup_js3
+							)
 
 
 dper.add_handler(CQH(darsalar_uchun_query))
