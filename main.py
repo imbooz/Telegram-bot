@@ -973,6 +973,16 @@ def darsalar_uchun_query(bot, update):
 
 dper.add_handler(CQH(darsalar_uchun_query))
 
+"""
 
+Part to set up webhook for Heroku!
 
-uper.start_polling()
+"""
+
+import os
+PORT = os.environ.get('PORT')
+uper.start_webhook(listen="0.0.0",
+				   port=int(PORT),
+				   url_path=token)
+uper.bot.setWebhook("https://beruny-bot.herokuapp.com/{}".format(token))
+uper.idle()
