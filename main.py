@@ -275,6 +275,15 @@ help_handler = CH('help', help_command)
 dper.add_handler(help_handler)
 
 
+def chat_id(bot, update):
+	bot.send_message(chat_id=update.message.chat_id, text=update.message.chat_id)
+
+
+dper.add_handler(CH('id', chat_id))
+
+def feedback(bot, update):
+	pass
+
 
 def darsalar_uchun_query(bot, update):
 
@@ -1190,12 +1199,6 @@ def darsalar_uchun_query(bot, update):
 
 
 dper.add_handler(CQH(darsalar_uchun_query))
-
-"""
-
-Part to set up webhook for Heroku!
-
-"""
 
 import os
 PORT = os.environ.get('PORT')
