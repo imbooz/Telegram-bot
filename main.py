@@ -327,151 +327,151 @@ def darsalar_uchun_query(bot, update):
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/14",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub2":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/22",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub3":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/28",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub4":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/42",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub5":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/47",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub6":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/55",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub7":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/57",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub8":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/70",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub9":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/85",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub10":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/90",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub11":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/141",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub12":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/147",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub13":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/153",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub14":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/162",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub15":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/172",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub16":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/177",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub17":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/183",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub18":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/192",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub19":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/203",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub20":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/216",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub21":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/233",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub22":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/237",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub23":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/239",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub24":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/248",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub25":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
 					   "https://t.me/BerunyBeginner/249",
-					   caption="Beginner {}-Dars.\n Umidjon Sobirov")
+					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ubnext1":
 		bot.edit_message_text(text="Quyidagi darslar ro'yxatidan keraklisini tanlang:",
 							  chat_id=update.callback_query.message.chat_id,
