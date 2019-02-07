@@ -716,211 +716,315 @@ def darsalar_uchun_query(bot, update):
 	if query.data == "js1":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/165", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/165", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js2":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/168", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/168", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js3":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/169", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/169", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js4":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/170", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/170", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js5":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/171", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/171", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js6":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/172", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/172", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js7":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/173", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/173", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js8":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/174", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/174", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js9":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/175", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/175", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js10":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/176", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/176", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js11a":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/177", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/177", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js11b":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/178", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/178", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js12":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/179", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/179", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js13":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/181", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/181", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js14":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/182", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/182", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js15":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/183", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/183", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js16":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/184", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/184", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js17":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/185", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/185", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js18":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/186", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/186", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js19":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/187", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/187", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js20":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/188", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/188", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js21":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/189", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/189", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js22":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/190", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/190", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js23":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/191", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/191", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js24":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/192", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/192", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js25a":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/193", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/193", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js25b":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/194", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/194", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js26":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/195", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/195", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js27":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/196", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/196", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js28":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/198", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/198", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js29":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/199", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/199", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js30":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/200", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/200", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js31":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/201", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/201", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js32":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/202", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/202", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js33":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/203", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/203", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js34":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/204", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/204", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js35":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/205", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/205", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js36":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/206", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/206", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js37":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/207", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/207", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js38":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/208", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/208", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js39":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/209", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/209", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js40":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/211", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/211", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js41":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/212", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/212", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js42":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/213", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/213", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js43":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/214", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/214", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js44":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/215", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/215", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js45":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/216", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/216", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js46":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/217", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/217", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js47":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/219", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/219", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js48":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/221", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/221", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js49":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/222", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/222", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "js50":
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id, "https://t.me/virtualdars/223", caption=query.data)
+		bot.send_video(query.message.chat_id,
+					   "https://t.me/virtualdars/223", 
+					   caption="JavaScript {}-Dars".format(query.data[2:]))
 	elif query.data == "jsnext1":
 		bot.edit_message_text(text="Quyidagi darslar ro'yxatidan keraklisini tanlang:",
 							  chat_id=update.callback_query.message.chat_id,
