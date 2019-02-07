@@ -281,8 +281,14 @@ def chat_id(bot, update):
 
 dper.add_handler(CH('id', chat_id))
 
+
 def feedback(bot, update):
-	pass
+	bot.forward_message(chat_id=137786647,
+						from_chat_id=update.message.chat_id,
+						message_id=update.message.message_id)
+
+
+dper.add_handler(CH('feedback', feedback))
 
 
 def darsalar_uchun_query(bot, update):
