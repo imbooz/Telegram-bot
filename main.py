@@ -1194,11 +1194,6 @@ def darsalar_uchun_query(bot, update):
 							  message_id=update.callback_query.message.message_id,
 							  reply_markup=reply_markup_js3
 							)
-	if query.data == "bekor_qilish":
-		bot.edit_message_text(text="Bekor qilindi",
-							  chat_id=update.callback_query.message.chat_id,
-							  message_id=update.callback_query.message.message_id
-							)
 
 
 start_handler = CH('start', start)
@@ -1206,10 +1201,13 @@ broadcast_handler = CH('broadcast', broadcast)
 ids_handler = CH('ids', ids)
 dper.add_handler(ids_handler)
 dper.add_handler(start_handler)
-dper.add_handler(CH('id', chat_id))
 dper.add_handler(broadcast_handler)
+dper.add_handler(CQH(darsalar_uchun_query))
+dper.add_handler(CH('id', chat_id))
 dper.add_handler(MH(Filters.text, tanlovlar))
 
+uper.start_polling()
+"""
 import os
 PORT = os.environ.get('PORT')
 uper.start_webhook(listen="0.0.0",
@@ -1217,3 +1215,4 @@ uper.start_webhook(listen="0.0.0",
 				   url_path=token)
 uper.bot.setWebhook("https://beruny-bot.herokuapp.com/{}".format(token))
 uper.idle()
+"""
