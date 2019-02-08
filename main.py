@@ -38,8 +38,15 @@ def start(bot, update):
 	current_position = "Home"
 
 
-start_handler = CH('start', start)
-dper.add_handler(start_handler)
+def uy(bot, update):
+	keyboard = [
+		[KeyboardButton("Til kurslari 📚"), KeyboardButton("Dasturlash kurslari 👨🏻‍💻")],
+		[KeyboardButton("Adminlar bilan bog'lanish")]
+	]
+	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
+	update.message.reply_text("Quyidagi yo'nalishlardan birini tanlang:", reply_markup=reply_markup)
+	global current_position
+	current_position = "Home"
 
 
 def til_kurslari(bot, update):
@@ -161,15 +168,58 @@ def javascript(bot, update):
 	global current_position
 	current_position = "JavaScript"
 
-"""
-
-	This is a place for further coding like python courses and so on!
-
-"""
 
 def bosh_menyu(bot, update):
 	bot.send_message(chat_id=update.message.chat_id, text="Bosh menyu 🏠")
-	start(bot, update)
+	uy(bot, update)
+
+
+def sending(bot, update):
+	bot.edit_message_text(text="Siz so'ragan fayl jonatilyapti! Iltimos biroz kuting!",
+						  chat_id=update.callback_query.message.chat_id,
+						  message_id=update.callback_query.message.message_id)
+
+
+def ids(bot, update):
+	all_ids = users.file_with_ids()
+	bot.send_message(chat_id=update.message.chat_id, text="here is the list of ids: \n{}".format(all_ids))
+
+
+def  broadcast(bot, update):
+	user_ids = users.file_with_ids()
+	msg_txt = update.message.text
+
+	if len(msg_txt.split()) > 1:
+		if update.message.from_user.id == 137786647:
+			for user_id in user_ids:
+				try:
+					bot.send_message(chat_id=user_id, text=msg_txt[10:])
+				except Exception:
+					users.remove_ids(user_id)
+					pass
+		else:
+			bot.send_message(chat_id=update.message.chat_id, text="Sorry you don't have access to this command")
+	else:
+		bot.send_message(chat_id=update.message.chat_id, text="Should contain text to broadcast")
+
+
+def chat_id(bot, update):
+	bot.send_message(chat_id=update.message.chat_id, text=update.message.chat_id)
+	pass
+
+
+def feedback(bot, update):
+	keyboard = [
+		[KeyboardButton("Bekor qilish"),],
+	]
+
+	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
+	bot.send_message(chat_id=update.message.chat_id, 
+					 text="Bizga qanday murojatingiz bo'lsa uni yozib qoldirishingiz mumkin.",
+					 reply_markup=reply_markup)
+
+	global feedback_id
+	feedback_id = update.update_id
 
 
 def ortga(bot, update):
@@ -184,10 +234,10 @@ def ortga(bot, update):
 		umid_ingliz_tili_darajalar(bot, update)
 	elif current_position == "Coding" or current_position == "Langs":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
-		start(bot, update)
+		uy(bot, update)
 	elif current_position == "JavaScript":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
-		start(bot, update)
+		uy(bot, update)
 
 
 def tanlovlar(bot, update):
@@ -198,6 +248,9 @@ def tanlovlar(bot, update):
 		bot.forward_message(chat_id=137786647,
 		    				from_chat_id=update.message.chat_id,
 			    			message_id=update.message.message_id)
+		bot.send_message(chat_id=update.message.chat_id,
+						 text="Sizning xabaringiz adminlarga jo'natildi! Tez orada ular siz bilan bog'lanishadi!")
+		uy(bot, update)
 
 	if "Adminlar bilan bog'lanish" == msg_txt:
 		feedback(bot, update)
@@ -227,86 +280,7 @@ def tanlovlar(bot, update):
 		bot.send_message(text="Bekor qilindi",
 						 chat_id=update.message.chat_id,
 						 message_id=update.message.message_id)
-		start(bot, update)
-
-
-dper.add_handler(MH(Filters.text, tanlovlar))
-
-
-
-def sending(bot, update):
-	bot.edit_message_text(text="Siz so'ragan fayl jonatilyapti! Iltimos biroz kuting!",
-						  chat_id=update.callback_query.message.chat_id,
-						  message_id=update.callback_query.message.message_id)
-
-
-# /ids command responder
-def ids(bot, update):
-	all_ids = users.file_with_ids()
-	bot.send_message(chat_id=update.message.chat_id, text="here is the list of ids: \n{}".format(all_ids))
-
-
-ids_handler = CH('ids', ids)
-dper.add_handler(ids_handler)
-
-
-# /broadcast command handler
-def  broadcast(bot, update):
-	user_ids = users.file_with_ids()
-	msg_txt = update.message.text
-
-	if len(msg_txt.split()) > 1:
-		if update.message.from_user.id == 137786647:
-			for user_id in user_ids:
-				try:
-					bot.send_message(chat_id=user_id, text=msg_txt[10:])
-				except Exception:
-					users.remove_ids(user_id)
-					pass
-		else:
-			bot.send_message(chat_id=update.message.chat_id, text="Sorry you don't have access to this command")
-	else:
-		bot.send_message(chat_id=update.message.chat_id, text="Should contain text to broadcast")
-
-
-broadcast_handler = CH('broadcast', broadcast)
-dper.add_handler(broadcast_handler)
-
-
-# /help command handler
-def help_command(bot, update):
-	help_text = "Welcome to Beruny English with Mr.Salim!\n"\
-				"I can help you with the assignments given by *Mr.Salim*\n"\
-				"/start -> Start the bot!\n"\
-				"/help -> This help message!\n"\
-				"/tasks -> Get the tasks to practise what you're learning"
-
-	bot.send_message(chat_id=update.message.chat_id, text=help_text, parse_mode=telegram.ParseMode.MARKDOWN)
-
-
-help_handler = CH('help', help_command)
-dper.add_handler(help_handler)
-
-
-def chat_id(bot, update):
-	bot.send_message(chat_id=update.message.chat_id, text=update.message.chat_id)
-
-
-dper.add_handler(CH('id', chat_id))
-
-
-def feedback(bot, update):
-	keyboard = [
-		[KeyboardButton("Bekor qilish"),],
-	]
-
-	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
-	bot.send_message(chat_id=update.message.chat_id, 
-					 text="Bizga qanday murojatingiz bo'lsa uni yozib qoldirishingiz mumkin.",
-					 reply_markup=reply_markup)
-
-	global feedback_id
-	feedback_id = update.update_id
+		uy(bot, update)
 
 
 def darsalar_uchun_query(bot, update):
@@ -1226,6 +1200,17 @@ def darsalar_uchun_query(bot, update):
 							  message_id=update.callback_query.message.message_id
 							)
 
+
+help_handler = CH('help', help_command)
+start_handler = CH('start', start)
+broadcast_handler = CH('broadcast', broadcast)
+ids_handler = CH('ids', ids)
+dper.add_handler(ids_handler)
+dper.add_handler(start_handler)
+dper.add_handler(CH('id', chat_id))
+dper.add_handler(help_handler)
+dper.add_handler(broadcast_handler)
+dper.add_handler(MH(Filters.text, tanlovlar))
 
 import os
 PORT = os.environ.get('PORT')
