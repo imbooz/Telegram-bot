@@ -1206,8 +1206,7 @@ dper.add_handler(CQH(darsalar_uchun_query))
 dper.add_handler(CH('id', chat_id))
 dper.add_handler(MH(Filters.text, tanlovlar))
 
-uper.start_polling()
-"""
+
 import os
 PORT = os.environ.get('PORT')
 uper.start_webhook(listen="0.0.0",
@@ -1215,4 +1214,3 @@ uper.start_webhook(listen="0.0.0",
 				   url_path=token)
 uper.bot.setWebhook("https://beruny-bot.herokuapp.com/{}".format(token))
 uper.idle()
-"""
