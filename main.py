@@ -1201,14 +1201,12 @@ def darsalar_uchun_query(bot, update):
 							)
 
 
-help_handler = CH('help', help_command)
 start_handler = CH('start', start)
 broadcast_handler = CH('broadcast', broadcast)
 ids_handler = CH('ids', ids)
 dper.add_handler(ids_handler)
 dper.add_handler(start_handler)
 dper.add_handler(CH('id', chat_id))
-dper.add_handler(help_handler)
 dper.add_handler(broadcast_handler)
 dper.add_handler(MH(Filters.text, tanlovlar))
 
