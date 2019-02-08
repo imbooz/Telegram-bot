@@ -11,8 +11,8 @@ logging.basicConfig(
 	format='%(asctime)s - %(name)s - %(levelname)s - %(messages)s',
 	level=logging.INFO 
 	)
-# token = "718174216:AAG8vOUss-ku4q8fAVueYbzM_9bSoBt4e4c"
-token = "783492460:AAF251KyHEzgS23v_8n1A2mBOyMOBJwyE-4"
+token = "718174216:AAG8vOUss-ku4q8fAVueYbzM_9bSoBt4e4c"
+# token = "783492460:AAF251KyHEzgS23v_8n1A2mBOyMOBJwyE-4"
 uper = Uper(token=token)
 dper = uper.dispatcher
 
