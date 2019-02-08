@@ -1,6 +1,6 @@
 import logging
 import users
-from telegram import KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import Updater as Uper
 from telegram.ext import CommandHandler as CH
 from telegram.ext import MessageHandler as MH
@@ -11,8 +11,8 @@ logging.basicConfig(
 	format='%(asctime)s - %(name)s - %(levelname)s - %(messages)s',
 	level=logging.INFO 
 	)
-token = "718174216:AAG8vOUss-ku4q8fAVueYbzM_9bSoBt4e4c"
-# token = "783492460:AAF251KyHEzgS23v_8n1A2mBOyMOBJwyE-4"
+# token = "718174216:AAG8vOUss-ku4q8fAVueYbzM_9bSoBt4e4c"
+token = "783492460:AAF251KyHEzgS23v_8n1A2mBOyMOBJwyE-4"
 uper = Uper(token=token)
 dper = uper.dispatcher
 
@@ -194,7 +194,7 @@ def tanlovlar(bot, update):
 	msg_txt = update.message.text
 	global feedback_id
 
-	if (update.update_id - 1) == feedback_id:
+	if (update.update_id - 1) == feedback_id and msg_txt != "Bekor qilish":
 		bot.forward_message(chat_id=137786647,
 		    				from_chat_id=update.message.chat_id,
 			    			message_id=update.message.message_id)
@@ -223,6 +223,11 @@ def tanlovlar(bot, update):
 		ortga(bot, update)
 	elif "Bosh menyu 🏠" == msg_txt:
 		bosh_menyu(bot, update)
+	elif "Bekor qilish" == msg_txt:
+		bot.send_message(text="Bekor qilindi",
+						 chat_id=update.message.chat_id,
+						 message_id=update.message.message_id)
+		start(bot, update)
 
 
 dper.add_handler(MH(Filters.text, tanlovlar))
@@ -231,9 +236,8 @@ dper.add_handler(MH(Filters.text, tanlovlar))
 
 def sending(bot, update):
 	bot.edit_message_text(text="Siz so'ragan fayl jonatilyapti! Iltimos biroz kuting!",
-							  chat_id=update.callback_query.message.chat_id,
-							  message_id=update.callback_query.message.message_id
-							)
+						  chat_id=update.callback_query.message.chat_id,
+						  message_id=update.callback_query.message.message_id)
 
 
 # /ids command responder
@@ -293,17 +297,16 @@ dper.add_handler(CH('id', chat_id))
 
 def feedback(bot, update):
 	keyboard = [
-		[InlineKeyboardButton("Bekor qilish", callback_data="bekor_qilish"),],
+		[KeyboardButton("Bekor qilish"),],
 	]
 
-	reply_markup = InlineKeyboardMarkup(keyboard)
+	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 	bot.send_message(chat_id=update.message.chat_id, 
 					 text="Bizga qanday murojatingiz bo'lsa uni yozib qoldirishingiz mumkin.",
 					 reply_markup=reply_markup)
 
 	global feedback_id
 	feedback_id = update.update_id
-	print(feedback_id)
 
 
 def darsalar_uchun_query(bot, update):
@@ -1223,8 +1226,6 @@ def darsalar_uchun_query(bot, update):
 							  message_id=update.callback_query.message.message_id
 							)
 
-
-dper.add_handler(CQH(darsalar_uchun_query))
 
 import os
 PORT = os.environ.get('PORT')
