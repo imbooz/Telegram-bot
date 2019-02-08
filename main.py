@@ -12,6 +12,7 @@ logging.basicConfig(
 	level=logging.INFO 
 	)
 token = "718174216:AAG8vOUss-ku4q8fAVueYbzM_9bSoBt4e4c"
+# token = "783492460:AAF251KyHEzgS23v_8n1A2mBOyMOBJwyE-4"
 uper = Uper(token=token)
 dper = uper.dispatcher
 
@@ -19,10 +20,14 @@ dper = uper.dispatcher
 global current_position
 current_position = "Nothing"
 
+global feedback_id
+feedback_id = 12
+
 # /start command responder
 def start(bot, update):
 	keyboard = [
 		[KeyboardButton("Til kurslari 📚"), KeyboardButton("Dasturlash kurslari 👨🏻‍💻")],
+		[KeyboardButton("Adminlar bilan bog'lanish")]
 	]
 	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 	welcome_txt = "Salom! 👋\nBeruny Academy rasmiy botiga 🤖 xush kelibsiz, sizni bu yerda ko'rganimdan mamnunman! 🤝 \n\n"\
@@ -162,11 +167,6 @@ def javascript(bot, update):
 
 """
 
-
-
-
-
-
 def bosh_menyu(bot, update):
 	bot.send_message(chat_id=update.message.chat_id, text="Bosh menyu 🏠")
 	start(bot, update)
@@ -192,8 +192,16 @@ def ortga(bot, update):
 
 def tanlovlar(bot, update):
 	msg_txt = update.message.text
+	global feedback_id
 
-	if "Til kurslari 📚" == msg_txt:
+	if (update.update_id - 1) == feedback_id:
+		bot.forward_message(chat_id=137786647,
+		    				from_chat_id=update.message.chat_id,
+			    			message_id=update.message.message_id)
+
+	if "Adminlar bilan bog'lanish" == msg_txt:
+		feedback(bot, update)
+	elif "Til kurslari 📚" == msg_txt:
 		til_kurslari(bot, update)
 	elif "Ingliz tili 🇬🇧" == msg_txt:
 		ustozlar_ingliz_tili(bot, update)
@@ -214,7 +222,8 @@ def tanlovlar(bot, update):
 	elif "Ortga ⬅️" == msg_txt:
 		ortga(bot, update)
 	elif "Bosh menyu 🏠" == msg_txt:
-		bosh_menyu(bot, update) 
+		bosh_menyu(bot, update)
+
 
 dper.add_handler(MH(Filters.text, tanlovlar))
 
@@ -283,12 +292,18 @@ dper.add_handler(CH('id', chat_id))
 
 
 def feedback(bot, update):
-	bot.forward_message(chat_id=137786647,
-						from_chat_id=update.message.chat_id,
-						message_id=update.message.message_id)
+	keyboard = [
+		[InlineKeyboardButton("Bekor qilish", callback_data="bekor_qilish"),],
+	]
 
+	reply_markup = InlineKeyboardMarkup(keyboard)
+	bot.send_message(chat_id=update.message.chat_id, 
+					 text="Bizga qanday murojatingiz bo'lsa uni yozib qoldirishingiz mumkin.",
+					 reply_markup=reply_markup)
 
-dper.add_handler(CH('feedback', feedback))
+	global feedback_id
+	feedback_id = update.update_id
+	print(feedback_id)
 
 
 def darsalar_uchun_query(bot, update):
@@ -1201,6 +1216,11 @@ def darsalar_uchun_query(bot, update):
 							  chat_id=update.callback_query.message.chat_id,
 							  message_id=update.callback_query.message.message_id,
 							  reply_markup=reply_markup_js3
+							)
+	if query.data == "bekor_qilish":
+		bot.edit_message_text(text="Bekor qilindi",
+							  chat_id=update.callback_query.message.chat_id,
+							  message_id=update.callback_query.message.message_id
 							)
 
 
