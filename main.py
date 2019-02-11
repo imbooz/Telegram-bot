@@ -30,7 +30,7 @@ def start(bot, update):
 		[KeyboardButton("Adminlar bilan bog'lanish")]
 	]
 	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
-	welcome_txt = "Salom! 👋\nBeruny Academy rasmiy botiga 🤖 xush kelibsiz, sizni bu yerda ko'rganimdan mamnunman! 🤝 \n\n"\
+	welcome_txt = "Salom! 👋\n\nBeruny Academy rasmiy botiga xush kelibsiz, sizni bu yerda ko'rganimdan mamnunman! 🤝 \n\n"\
 				  "Siz bu bot orqali quyidagi yo'nalishlarni tanlashingiz mumkin:"
 	update.message.reply_text(welcome_txt, reply_markup=reply_markup)
 	users.save_ids(update.message.chat_id)
@@ -63,8 +63,7 @@ def til_kurslari(bot, update):
 
 def dasturlash_kurslari(bot, update):
 	keyboard = [
-		[KeyboardButton("JavaScript 🔰")],
-		[KeyboardButton("Python 🐍")],
+		[KeyboardButton("JavaScript 🔰"), KeyboardButton("Python 🐍")],
 		[KeyboardButton("Ortga ⬅️"), KeyboardButton("Bosh menyu 🏠")]
     ]
 	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
@@ -185,7 +184,7 @@ def ids(bot, update):
 	bot.send_message(chat_id=update.message.chat_id, text="here is the list of ids: \n{}".format(all_ids))
 
 
-def  broadcast(bot, update):
+def broadcast(bot, update):
 	user_ids = users.file_with_ids()
 	msg_txt = update.message.text
 
@@ -245,6 +244,8 @@ def tanlovlar(bot, update):
 	global feedback_id
 
 	if (update.update_id - 1) == feedback_id and msg_txt != "Bekor qilish":
+		bot.send_message(chat_id=137786647,
+						 text="Hey guys! you've got a feedback!")
 		bot.forward_message(chat_id=137786647,
 		    				from_chat_id=update.message.chat_id,
 			    			message_id=update.message.message_id)
@@ -333,7 +334,7 @@ def darsalar_uchun_query(bot, update):
 		sending(bot, update)
 		bot.send_chat_action(query.message.chat_id, "upload_video")
 		bot.send_video(query.message.chat_id,
-					   "https://t.me/BerunyBeginner/14",
+					   "https://youtu.be/R0NF3LFogUg",
 					   caption="Beginner {}-Dars.\n Umidjon Sobirov".format(query.data[2:]))
 	elif query.data == "ub2":
 		sending(bot, update)
