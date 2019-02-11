@@ -99,13 +99,10 @@ def umid_beginner(bot, update):
 		 InlineKeyboardButton("2-Dars", callback_data="ub2")],
 		[InlineKeyboardButton("3-Dars", callback_data="ub3"),
 		 InlineKeyboardButton("4-Dars", callback_data="ub4")],
-		[InlineKeyboardButton("5-Dars", callback_data="ub5"),
-		 InlineKeyboardButton("6-Dars", callback_data="ub6")],
-		[InlineKeyboardButton("7-Dars", callback_data="ub7"),
-		 InlineKeyboardButton("8-Dars", callback_data="ub8")],
-		[InlineKeyboardButton("9-Dars", callback_data="ub9"),
-		 InlineKeyboardButton("10-Dars", callback_data="ub10")],
-		[InlineKeyboardButton("Davomi ⏩", callback_data="ubnext1")]
+		[InlineKeyboardButton("5-Dars", callback_data="ub5"),],
+		[InlineKeyboardButton("YouTube", url="https://www.youtube.com/playlist?list=PLdNKI0sOr3EX4QygHtKwNVxAVPDpkeFGC"),
+		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz/watch/sIHAnn8m/?list=5YwXxcgo")],
+		[InlineKeyboardButton("Beruny.uz", url="http://beruny.uz/index.php/kurslar/course/eng-beginner")]
 	]
 	reply_markup = InlineKeyboardMarkup(InlineKeyboard)
 	update.message.reply_text("Quyidagi darslar ro'yxatidan keraklisini tanlang:", reply_markup=reply_markup)
@@ -119,9 +116,10 @@ def umid_elementary(bot, update):
 		 InlineKeyboardButton("2-Dars", callback_data="ue2")],
 		[InlineKeyboardButton("3-Dars", callback_data="ue3"),
 		 InlineKeyboardButton("4-Dars", callback_data="ue4")],
-		[InlineKeyboardButton("5-Dars", callback_data="ue5"),
-		 InlineKeyboardButton("6-Dars", callback_data="ue6")],
-		[InlineKeyboardButton("7-Dars", callback_data="ue7")]
+		[InlineKeyboardButton("5-Dars", callback_data="ue5"),],
+		[InlineKeyboardButton("YouTube", url="https://www.youtube.com/playlist?list=PLdNKI0sOr3EUhOpqI50EaoWe7vwVey586"),
+		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz/watch/1Q5Los8m/?list=nqRRF3he")],
+		[InlineKeyboardButton("Beruny.uz", url="http://beruny.uz/index.php/kurslar/course/english-elementary")]
 	]
 	reply_markup = InlineKeyboardMarkup(InlineKeyboard)
 	update.message.reply_text("Quyidagi darslar ro'yxatidan keraklisini tanlang:", reply_markup=reply_markup)
