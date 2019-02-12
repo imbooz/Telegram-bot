@@ -133,12 +133,12 @@ def umid_elementary(bot, update):
 	current_position = "UmidE"
 
 
-def salim_ingliz_tili_darajalar(bot, update):
+def salim_ingliz_tili_darajalari(bot, update):
 	keyboard = [
 		[KeyboardButton("Beginner 👶"),],
 		[KeyboardButton("Ortga ⬅️"), KeyboardButton("Bosh menyu 🏠")]
 	]
-	reply_markup = InlineKeyboardMarkup(keyboard, resize_keyboard=True)
+	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=True)
 	update.message.reply_text("Mavjud ingliz tili darajalaridan birini tanlang:",
 							  reply_markup=reply_markup)
 	global current_position
@@ -239,6 +239,7 @@ def feedback(bot, update):
 
 
 def send_videos(bot, update, link, level, teacher):
+	query = update.callback_query
 	sending(bot, update)
 	bot.send_chat_action(query.message.chat_id, "upload_video")
 	bot.send_video(query.message.chat_id,
@@ -294,7 +295,7 @@ def tanlovlar(bot, update):
 	elif "Elementary" == msg_txt:
 		umid_elementary(bot, update)
 	elif "Shosalim Bakhtiyorov 👨🏻‍🏫" == msg_txt:
-		salim_ingliz_tili_darajalar(bot, update)
+		salim_ingliz_tili_darajalari(bot, update)
 	elif "Beginner 👶" == msg_txt:
 		salim_beginner(bot, update)
 	elif "Dasturlash kurslari 👨🏻‍💻" == msg_txt:
