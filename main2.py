@@ -322,15 +322,15 @@ def darsalar_uchun_query(bot, update):
 	query = update.callback_query
 
 	if query.data == "ub1":
-		send_videos(bot, update, "https://t.me/BerunyBeginner/14", "Umidjon Sobirov")
+		send_videos(bot, update, "https://t.me/BerunyBeginner/14", "Beginner", "Umidjon Sobirov")
 	elif query.data == "ub2":
-		send_videos(bot, update, "https://t.me/BerunyBeginner/22", "Umidjon Sobirov")
+		send_videos(bot, update, "https://t.me/BerunyBeginner/22", "Beginner", "Umidjon Sobirov")
 	elif query.data == "ub3":
-		send_videos(bot, update, "https://t.me/BerunyBeginner/28", "Umidjon Sobirov")
+		send_videos(bot, update, "https://t.me/BerunyBeginner/28", "Beginner", "Umidjon Sobirov")
 	elif query.data == "ub4":
-		send_videos(bot, update, "https://t.me/BerunyBeginner/42", "Umidjon Sobirov")
+		send_videos(bot, update, "https://t.me/BerunyBeginner/42", "Beginner", "Umidjon Sobirov")
 	elif query.data == "ub5":
-		send_videos(bot, update, "https://t.me/BerunyBeginner/47", "Umidjon Sobirov")
+		send_videos(bot, update, "https://t.me/BerunyBeginner/47", "Beginner", "Umidjon Sobirov")
 	
 	# Query responder for Umid's beginner lessons ends
 
@@ -339,15 +339,15 @@ def darsalar_uchun_query(bot, update):
 	# Query responder for Umid's elementary lessons starts
 
 	if query.data == "ue1":
-		send_videos(bot, update, "https://t.me/BerunyBeginner/343", "Umidjon Sobirov")
+		send_videos(bot, update, "https://t.me/BerunyBeginner/343", "Elementary", "Umidjon Sobirov")
 	elif query.data == "ue2":
-		send_videos(bot, update, "https://t.me/BerunyBeginner/354", "Umidjon Sobirov")
+		send_videos(bot, update, "https://t.me/BerunyBeginner/354", "Elementary", "Umidjon Sobirov")
 	elif query.data == "ue3":
-		send_videos(bot, update, "https://t.me/BerunyBeginner/361", "Umidjon Sobirov")
+		send_videos(bot, update, "https://t.me/BerunyBeginner/361", "Elementary", "Umidjon Sobirov")
 	elif query.data == "ue4":
-		send_videos(bot, update, "https://t.me/BerunyBeginner/370", "Umidjon Sobirov")
+		send_videos(bot, update, "https://t.me/BerunyBeginner/370", "Elementary", "Umidjon Sobirov")
 	elif query.data == "ue5":
-		send_videos(bot, update, "https://t.me/BerunyBeginner/376", "Umidjon Sobirov")
+		send_videos(bot, update, "https://t.me/BerunyBeginner/376", "Elementary", "Umidjon Sobirov")
 
 	# Query responder for Umid's elementary lessons ends
 
@@ -362,15 +362,15 @@ def darsalar_uchun_query(bot, update):
 					   "https://t.me/testberuny/6",
 					   caption="Kurs bilan tanishuv.\nShosalim Bakhtiyorov")
 	elif query.data == "sb1":
-		send_videos(bot, update, "https://t.me/testberuny/7", "Shosalim Bakhtiyorov")
+		send_videos(bot, update, "https://t.me/testberuny/7", "Beginner", "Shosalim Bakhtiyorov")
 	elif query.data == "sb2":
-		send_videos(bot, update, "https://t.me/testberuny/8", "Shosalim Bakhtiyorov")
+		send_videos(bot, update, "https://t.me/testberuny/8", "Beginner", "Shosalim Bakhtiyorov")
 	elif query.data == "sb3":
-		send_videos(bot, update, "https://t.me/testberuny/17", "Shosalim Bakhtiyorov")
+		send_videos(bot, update, "https://t.me/testberuny/17", "Beginner", "Shosalim Bakhtiyorov")
 	elif query.data == "sb4":
-		send_videos(bot, update, "https://t.me/testberuny/16", "Shosalim Bakhtiyorov")
+		send_videos(bot, update, "https://t.me/testberuny/16", "Beginner", "Shosalim Bakhtiyorov")
 	elif query.data == "sb5":
-		send_videos(bot, update, "https://t.me/testberuny/18", "Shosalim Bakhtiyorov")
+		send_videos(bot, update, "https://t.me/testberuny/18", "Beginner", "Shosalim Bakhtiyorov")
 
 	# Query responder for my beginner course finishes
 

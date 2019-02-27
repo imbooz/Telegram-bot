@@ -153,9 +153,9 @@ def salim_beginner(bot, update):
 		[InlineKeyboardButton("3-Dars", callback_data="sb3"),
 		 InlineKeyboardButton("4-Dars", callback_data="sb4")],
 		[InlineKeyboardButton("5-Dars", callback_data="sb5"),],
-		[InlineKeyboardButton("YouTube", url="https://www.youtube.com/playlist?list=PLdNKI0sOr3EX4QygHtKwNVxAVPDpkeFGC"),
-		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz/watch/sIHAnn8m/?list=5YwXxcgo")],
-		[InlineKeyboardButton("Beruny.uz", url="http://beruny.uz/index.php/kurslar/course/eng-beginner")]
+		[InlineKeyboardButton("YouTube", url="https://www.youtube.com/playlist?list=PLdNKI0sOr3EX4QygHtKwNVxAVPDpkeFGC"), # Should be changed
+		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz/watch/sIHAnn8m/?list=5YwXxcgo")], # Should be changed
+		[InlineKeyboardButton("Beruny.uz", url="http://beruny.uz/index.php/kurslar/course/eng-beginner")] # Should be changed
 	]
 	reply_markup = InlineKeyboardMarkup(InlineKeyboard)
 	update.message.reply_text("Quyidagi darslar ro'yxatidan keraklisini tanlang:", reply_markup=reply_markup)
@@ -169,13 +169,9 @@ def javascript(bot, update):
 		 InlineKeyboardButton("2-Dars", callback_data="js2")],
 		[InlineKeyboardButton("3-Dars", callback_data="js3"),
 		 InlineKeyboardButton("4-Dars", callback_data="js4")],
-		[InlineKeyboardButton("5-Dars", callback_data="js5"),
-		 InlineKeyboardButton("6-Dars", callback_data="js6")],
-		[InlineKeyboardButton("7-Dars", callback_data="js7"),
-		 InlineKeyboardButton("8-Dars", callback_data="js8")],
-		[InlineKeyboardButton("9-Dars", callback_data="js9"),
-		 InlineKeyboardButton("10-Dars", callback_data="js10")],
-		[InlineKeyboardButton("Davomi ⏩", callback_data="jsnext1")]
+		[InlineKeyboardButton("5-Dars", callback_data="js5"),],
+		[InlineKeyboardButton("YouTube", url="https://www.youtube.com/playlist?list=PL_WK6W0Gn1I7bL0pRUxYSbTj6g8tHU6Yq"),
+		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz/watch/Cv6hnF8m/?list=kl7W9bfp")]
 	]
 	reply_markup = InlineKeyboardMarkup(InlineKeyboard)
 	update.message.reply_text("Bu darslar Farxod Dadajonov tomonidan tuzilgan va @virtualdars kanalidan olingan!\n"\
@@ -183,6 +179,36 @@ def javascript(bot, update):
 		reply_markup=reply_markup)
 	global current_position
 	current_position = "JavaScript"
+
+
+def python_darslari(bot, update):
+	keyboard = [
+		[KeyboardButton("Boshlang'ich Python"),],
+		[KeyboardButton("Toshbaqa ilovasi"),],
+		[KeyboardButton("Ortga ⬅️"), KeyboardButton("Bosh menyu 🏠")]
+	]
+	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=True)
+	update.message.reply_text("Kerakli darslarni tanlang:",
+							  reply_markup=reply_markup)
+	global current_position
+	current_position = "Python"
+
+
+def python_beginner(bot, update):
+	InlineKeyboard = [
+		[InlineKeyboardButton("1-Dars", callback_data="pb1"),
+		 InlineKeyboardButton("2-Dars", callback_data="pb2")],
+		[InlineKeyboardButton("3-Dars", callback_data="pb3"),
+		 InlineKeyboardButton("4-Dars", callback_data="pb4")],
+		[InlineKeyboardButton("5-Dars", callback_data="pb5"),],
+		[InlineKeyboardButton("YouTube", url="https://www.youtube.com/playlist?list=PLdNKI0sOr3EVf-ic347ZdJgzzkKCyiror"),
+		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz/watch/42GGJTE/?list=2xkQWLYE")],
+		[InlineKeyboardButton("Beruny.uz", url="http://beruny.uz/index.php/kurslar/course/py-beginner")]
+	]
+	reply_markup = InlineKeyboardMarkup(InlineKeyboard)
+	update.message.reply_text("Quyidagi darslar ro'yxatidan keraklisini tanlang:", reply_markup=reply_markup)
+	global current_position
+	current_position = "PythonB"
 
 
 def bosh_menyu(bot, update):
@@ -259,7 +285,7 @@ def ortga(bot, update):
 		umid_ingliz_tili_darajalar(bot, update)
 	elif current_position == "SalimB":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
-		salim_ingliz_tili_darajalar(bot, update)
+		salim_ingliz_tili_darajalari(bot, update)
 	elif current_position == "Coding" or current_position == "Langs":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
 		uy(bot, update)
@@ -303,7 +329,9 @@ def tanlovlar(bot, update):
 	elif "JavaScript 🔰" == msg_txt:
 		javascript(bot, update)
 	elif "Python 🐍" == msg_txt:
-		pass
+		python_darslari(bot, update)
+	elif "Boshlang'ich Python" == msg_txt:
+		python_beginner(bot, update)
 	elif "Ortga ⬅️" == msg_txt:
 		ortga(bot, update)
 	elif "Bosh menyu 🏠" == msg_txt:
@@ -379,35 +407,30 @@ def darsalar_uchun_query(bot, update):
 	# Query responder for JS lessons starts
 
 	if query.data == "js1":
-		sending(bot, update)
-		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id,
-					   "https://t.me/virtualdars/165", 
-					   caption="JavaScript {}-Dars".format(query.data[2:]))
+		send_videos(bot, update, "https://t.me/virtualdars/165", "JavaScript", "Farxod Dadajonov")
 	elif query.data == "js2":
-		sending(bot, update)
-		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id,
-					   "https://t.me/virtualdars/168", 
-					   caption="JavaScript {}-Dars".format(query.data[2:]))
+		send_videos(bot, update, "https://t.me/virtualdars/168", "JavaScript", "Farxod Dadajonov")
 	elif query.data == "js3":
-		sending(bot, update)
-		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id,
-					   "https://t.me/virtualdars/169", 
-					   caption="JavaScript {}-Dars".format(query.data[2:]))
+		send_videos(bot, update, "https://t.me/virtualdars/169", "JavaScript", "Farxod Dadajonov")
 	elif query.data == "js4":
-		sending(bot, update)
-		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id,
-					   "https://t.me/virtualdars/170", 
-					   caption="JavaScript {}-Dars".format(query.data[2:]))
+		send_videos(bot, update, "https://t.me/virtualdars/170", "JavaScript", "Farxod Dadajonov")
 	elif query.data == "js5":
-		sending(bot, update)
-		bot.send_chat_action(query.message.chat_id, "upload_video")
-		bot.send_video(query.message.chat_id,
-					   "https://t.me/virtualdars/171", 
-					   caption="JavaScript {}-Dars".format(query.data[2:]))
+		send_videos(bot, update, "https://t.me/virtualdars/171", "JavaScript", "Farxod Dadajonov")
+
+	# Query for Python Beginner lessons starts
+
+	"""/////////////////////////////////////////////////////////////////////////////////////"""
+
+	if query.data == "pb1":
+		send_videos(bot, update, "https://t.me/testberuny/9", "Python Beginner", "Dostonbek Toirov")
+	elif query.data == "pb2":
+		send_videos(bot, update, "https://t.me/testberuny/10", "Python Beginner", "Dostonbek Toirov")
+	elif query.data == "pb3":
+		send_videos(bot, update, "https://t.me/testberuny/11", "Python Beginner", "Dostonbek Toirov")
+	elif query.data == "pb4":
+		send_videos(bot, update, "https://t.me/testberuny/12", "Python Beginner", "Dostonbek Toirov")
+	elif query.data == "pb5":
+		send_videos(bot, update, "https://t.me/testberuny/13", "Python Beginner", "Dostonbek Toirov")
 
 
 start_handler = CH('start', start)
