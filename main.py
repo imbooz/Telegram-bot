@@ -289,9 +289,12 @@ def ortga(bot, update):
 	elif current_position == "Coding" or current_position == "Langs":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
 		uy(bot, update)
-	elif current_position == "JavaScript":
+	elif current_position == "JavaScript" or current_position == "Python":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
 		uy(bot, update)
+	elif current_position == "PythonB":
+		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
+		python_darslari(bot, update)
 
 
 def tanlovlar(bot, update):
