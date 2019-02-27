@@ -184,7 +184,7 @@ def javascript(bot, update):
 def python_darslari(bot, update):
 	keyboard = [
 		[KeyboardButton("Boshlang'ich Python"),],
-		[KeyboardButton("Toshbaqa ilovasi"),],
+		[KeyboardButton("Pythonda Dasturlar"),],
 		[KeyboardButton("Ortga ⬅️"), KeyboardButton("Bosh menyu 🏠")]
 	]
 	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=True)
@@ -209,6 +209,31 @@ def python_beginner(bot, update):
 	update.message.reply_text("Quyidagi darslar ro'yxatidan keraklisini tanlang:", reply_markup=reply_markup)
 	global current_position
 	current_position = "PythonB"
+
+
+def python_dasturlar(bot, update):
+	keyboard = [
+		[KeyboardButton("Toshbaqa Dasturi"),],
+		[KeyboardButton("Ortga ⬅️"), KeyboardButton("Bosh menyu 🏠")]
+	]
+	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True, one_time_keyboard=True)
+	update.message.reply_text("Kerakli darslarni tanlang:",
+							  reply_markup=reply_markup)
+	global current_position
+	current_position = "PythonProgrammes"
+
+
+def python_toshbaqa(bot, update):
+	InlineKeyboard = [
+		[InlineKeyboardButton("1-Dars", callback_data="pt1"),],
+		[InlineKeyboardButton("YouTube", url="https://www.youtube.com/playlist?list=PLdNKI0sOr3EWjIYfCuImTRVupSUMam-dq"),
+		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz/watch/4mCcMu8m/?list=zj9ZiDqE")],
+		[InlineKeyboardButton("Beruny.uz", url="http://beruny.uz/index.php/kurslar/course/python-dasturlar")]
+	]
+	reply_markup = InlineKeyboardMarkup(InlineKeyboard)
+	update.message.reply_text("Quyidagi darslar ro'yxatidan keraklisini tanlang:", reply_markup=reply_markup)
+	global current_position
+	current_position = "PythonT"
 
 
 def bosh_menyu(bot, update):
@@ -291,10 +316,13 @@ def ortga(bot, update):
 		uy(bot, update)
 	elif current_position == "JavaScript" or current_position == "Python":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
-		uy(bot, update)
-	elif current_position == "PythonB":
+		dasturlash_kurslari(bot, update)
+	elif current_position == "PythonB" or current_position == "PythonProgrammes":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
 		python_darslari(bot, update)
+	elif current_position == "PythonT":
+		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
+		python_dasturlar(bot, update)
 
 
 def tanlovlar(bot, update):
@@ -335,6 +363,10 @@ def tanlovlar(bot, update):
 		python_darslari(bot, update)
 	elif "Boshlang'ich Python" == msg_txt:
 		python_beginner(bot, update)
+	elif "Pythonda Dasturlar" == msg_txt:
+		python_dasturlar(bot, update)
+	elif "Toshbaqa Dasturi" == msg_txt:
+		python_toshbaqa(bot, update)
 	elif "Ortga ⬅️" == msg_txt:
 		ortga(bot, update)
 	elif "Bosh menyu 🏠" == msg_txt:
@@ -420,9 +452,11 @@ def darsalar_uchun_query(bot, update):
 	elif query.data == "js5":
 		send_videos(bot, update, "https://t.me/virtualdars/171", "JavaScript", "Farxod Dadajonov")
 
-	# Query for Python Beginner lessons starts
+	# Query responder for JS lessons finishes
 
 	"""/////////////////////////////////////////////////////////////////////////////////////"""
+
+	# Query responder for Python Beginner lessons starts
 
 	if query.data == "pb1":
 		send_videos(bot, update, "https://t.me/testberuny/9", "Python Beginner", "Dostonbek Toirov")
@@ -434,6 +468,13 @@ def darsalar_uchun_query(bot, update):
 		send_videos(bot, update, "https://t.me/testberuny/12", "Python Beginner", "Dostonbek Toirov")
 	elif query.data == "pb5":
 		send_videos(bot, update, "https://t.me/testberuny/13", "Python Beginner", "Dostonbek Toirov")
+	elif query.data == "pt1":
+		send_videos(bot, update, "https://t.me/testberuny/14", "Python Toshbaqa Dasturi", "Dostonbek Toirov")
+
+	# Query responder for Python Beginner lessons finishes
+
+	"""/////////////////////////////////////////////////////////////////////////////////////"""
+
 
 
 start_handler = CH('start', start)
