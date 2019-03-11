@@ -328,7 +328,7 @@ def tanlovlar(bot, update):
 	msg_txt = update.message.text
 	global feedback_id
 
-	if (update.update_id - 1) == feedback_id and msg_txt != "Bekor qilish":
+	if (update.message.message_id - 1) == feedback_id and msg_txt != "Bekor qilish":
 		bot.send_message(chat_id="-258831603",
 						 text="Hey guys! you've got a feedback!")
 		bot.forward_message(chat_id="-258831603",
