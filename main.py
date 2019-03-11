@@ -21,6 +21,8 @@ current_position = "Nothing"
 
 global feedback_id
 feedback_id = 12
+global u_id
+u_id = 12
 
 # /start command responder
 def start(bot, update):
@@ -286,7 +288,8 @@ def feedback(bot, update):
 
 	global feedback_id
 	feedback_id = update.message.message_id
-
+	global u_id
+	u_id = update.message.from_user.id
 
 def send_videos(bot, update, link, level, teacher):
 	query = update.callback_query
@@ -324,11 +327,17 @@ def ortga(bot, update):
 		python_dasturlar(bot, update)
 
 
+def message_id(bot, update):
+	bot.send_message(chat_id=update.message.chat_id, text=update.message.message_id)
+	print(update.message.message_id)
+
 def tanlovlar(bot, update):
 	msg_txt = update.message.text
 	global feedback_id
+	global u_id
 
-	if (update.message.message_id - 1) == feedback_id and msg_txt != "Bekor qilish":
+	if (update.message.message_id - 2) >= feedback_id and u_id == update.message.from_user.id and msg_txt != "Bekor qilish":
+		feedback_id *= 2
 		bot.send_message(chat_id="-258831603",
 						 text="Hey guys! you've got a feedback!")
 		bot.forward_message(chat_id="-258831603",
@@ -484,12 +493,10 @@ dper.add_handler(start_handler)
 dper.add_handler(broadcast_handler)
 dper.add_handler(CQH(darsalar_uchun_query))
 dper.add_handler(CH('id', chat_id))
+dper.add_handler(CH('msgid', message_id))
 dper.add_handler(MH(Filters.text, tanlovlar))
 
-uper.start_polling()
-uper.idle()
 
-"""
 import os
 PORT = os.environ.get('PORT')
 uper.start_webhook(listen="0.0.0",
@@ -497,4 +504,3 @@ uper.start_webhook(listen="0.0.0",
 				   url_path=token)
 uper.bot.setWebhook("https://beruny-bot.herokuapp.com/{}".format(token))
 uper.idle()
-"""
