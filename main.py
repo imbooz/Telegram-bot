@@ -285,7 +285,7 @@ def feedback(bot, update):
 					 reply_markup=reply_markup)
 
 	global feedback_id
-	feedback_id = update.update_id
+	feedback_id = update.message.message_id
 
 
 def send_videos(bot, update, link, level, teacher):
@@ -329,9 +329,9 @@ def tanlovlar(bot, update):
 	global feedback_id
 
 	if (update.update_id - 1) == feedback_id and msg_txt != "Bekor qilish":
-		bot.send_message(chat_id=137786647,
+		bot.send_message(chat_id="-258831603",
 						 text="Hey guys! you've got a feedback!")
-		bot.forward_message(chat_id=137786647,
+		bot.forward_message(chat_id="-258831603",
 		    				from_chat_id=update.message.chat_id,
 			    			message_id=update.message.message_id)
 		bot.send_message(chat_id=update.message.chat_id,
