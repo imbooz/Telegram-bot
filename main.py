@@ -155,8 +155,8 @@ def salim_beginner(bot, update):
 		[InlineKeyboardButton("3-Dars", callback_data="sb3"),
 		 InlineKeyboardButton("4-Dars", callback_data="sb4")],
 		[InlineKeyboardButton("5-Dars", callback_data="sb5"),],
-		[InlineKeyboardButton("YouTube", url="https://www.youtube.com/playlist?list=PLdNKI0sOr3EX4QygHtKwNVxAVPDpkeFGC"), # Should be changed
-		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz/watch/sIHAnn8m/?list=5YwXxcgo")], # Should be changed
+		[InlineKeyboardButton("YouTube", url="https://www.youtube.com/playlist?list=PLdNKI0sOr3EVrAHfgQx5p_PRZQIBsPFry"),
+		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz/watch/uKVdToAm/?list=lmYy7exQ")],
 		[InlineKeyboardButton("Beruny.uz", url="http://beruny.uz/index.php/kurslar/course/eng-beginner")] # Should be changed
 	]
 	reply_markup = InlineKeyboardMarkup(InlineKeyboard)
@@ -245,8 +245,8 @@ def matematika(bot, update):
 		[InlineKeyboardButton("3-Dars", callback_data="mt3"),
 		 InlineKeyboardButton("4-Dars", callback_data="mt4")],
 		[InlineKeyboardButton("5-Dars", callback_data="mt5"),],
-		[InlineKeyboardButton("YouTube", url="https://www.youtube.com"),
-		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz")]
+		[InlineKeyboardButton("YouTube", url="https://www.youtube.com/playlist?list=PLdNKI0sOr3EUEK3Y7AIpW3yqCcS3jnYts"),
+		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz/playlists/beruny")]
 	]
 	reply_markup = InlineKeyboardMarkup(InlineKeyboard)
 	update.message.reply_text("Bu darslar Isroil Tillaboyev tamonidan tuzilgan va @videodarslarim kanalidan olingan!\n"\
@@ -310,6 +310,7 @@ def feedback(bot, update):
 	global u_id
 	u_id = update.message.from_user.id
 
+
 def send_videos(bot, update, link, level, teacher):
 	query = update.callback_query
 	sending(bot, update)
@@ -360,7 +361,7 @@ def tanlovlar(bot, update):
 	global u_id
 	omitted_words = ["Bekor qilish", "Til kurslari 📚", "Dasturlash kurslari 👨🏻‍💻", "Adminlar bilan bog'lanish"]
 
-	if (update.message.message_id - 2) >= feedback_id and u_id == update.message.from_user.id and msg_txt is not in omitted_words:
+	if (update.message.message_id - 2) >= feedback_id and u_id == update.message.from_user.id and msg_txt not in omitted_words:
 
 		feedback_id *= 2
 		bot.send_message(chat_id="-258831603",
