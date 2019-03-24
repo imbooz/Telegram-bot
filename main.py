@@ -42,7 +42,8 @@ def start(bot, update):
 def uy(bot, update):
 	keyboard = [
 		[KeyboardButton("Til kurslari 📚"), KeyboardButton("Dasturlash kurslari 👨🏻‍💻")],
-		[KeyboardButton("Adminlar bilan bog'lanish")]
+		[KeyboardButton("Mathematics 🧮")],
+		[KeyboardButton("Adminlar bilan bog'lanish"),]
 	]
 	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 	update.message.reply_text("Quyidagi yo'nalishlardan birini tanlang:", reply_markup=reply_markup)
@@ -237,6 +238,24 @@ def python_toshbaqa(bot, update):
 	current_position = "PythonT"
 
 
+def matematika(bot, update):
+	InlineKeyboard = [
+		[InlineKeyboardButton("1-Dars", callback_data="mt1"),
+		 InlineKeyboardButton("2-Dars", callback_data="mt2")],
+		[InlineKeyboardButton("3-Dars", callback_data="mt3"),
+		 InlineKeyboardButton("4-Dars", callback_data="mt4")],
+		[InlineKeyboardButton("5-Dars", callback_data="mt5"),],
+		[InlineKeyboardButton("YouTube", url="https://www.youtube.com"),
+		 InlineKeyboardButton("Mover(TAS-IX)", url="https://mover.uz")]
+	]
+	reply_markup = InlineKeyboardMarkup(InlineKeyboard)
+	update.message.reply_text("Bu darslar Isroil Tillaboyev tamonidan tuzilgan va @videodarslarim kanalidan olingan!\n"\
+							  "Quyidagi darslar ro'yxatidan keraklisini tanlang:", 
+		reply_markup=reply_markup)
+	global current_position
+	current_position = "Math"
+
+
 def bosh_menyu(bot, update):
 	bot.send_message(chat_id=update.message.chat_id, text="Bosh menyu 🏠")
 	uy(bot, update)
@@ -316,6 +335,9 @@ def ortga(bot, update):
 	elif current_position == "Coding" or current_position == "Langs":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
 		uy(bot, update)
+	elif current_position == "Math":
+		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
+		uy(bot, update)
 	elif current_position == "JavaScript" or current_position == "Python":
 		bot.send_message(chat_id=update.message.chat_id, text="Ortga ⬅️")
 		dasturlash_kurslari(bot, update)
@@ -331,12 +353,15 @@ def message_id(bot, update):
 	bot.send_message(chat_id=update.message.chat_id, text=update.message.message_id)
 	print(update.message.message_id)
 
+
 def tanlovlar(bot, update):
 	msg_txt = update.message.text
 	global feedback_id
 	global u_id
+	omitted_words = ["Bekor qilish", "Til kurslari 📚", "Dasturlash kurslari 👨🏻‍💻", "Adminlar bilan bog'lanish"]
 
-	if (update.message.message_id - 2) >= feedback_id and u_id == update.message.from_user.id and msg_txt != "Bekor qilish":
+	if (update.message.message_id - 2) >= feedback_id and u_id == update.message.from_user.id and msg_txt is not in omitted_words:
+
 		feedback_id *= 2
 		bot.send_message(chat_id="-258831603",
 						 text="Hey guys! you've got a feedback!")
@@ -375,6 +400,8 @@ def tanlovlar(bot, update):
 		python_dasturlar(bot, update)
 	elif "Toshbaqa Dasturi" == msg_txt:
 		python_toshbaqa(bot, update)
+	elif "Mathematics 🧮" == msg_txt:
+		matematika(bot, update)
 	elif "Ortga ⬅️" == msg_txt:
 		ortga(bot, update)
 	elif "Bosh menyu 🏠" == msg_txt:
@@ -482,6 +509,18 @@ def darsalar_uchun_query(bot, update):
 	# Query responder for Python Beginner lessons finishes
 
 	"""/////////////////////////////////////////////////////////////////////////////////////"""
+
+	# Query responder for Mathematics lessons starts
+	if query.data == "mt1":
+		send_videos(bot, update, "https://t.me/testberuny/26", "Matematika", "Isroil Tillaboyev")
+	elif query.data == "mt2":
+		send_videos(bot, update, "https://t.me/testberuny/22", "Matematika", "Isroil Tillaboyev")
+	elif query.data == "mt3":
+		send_videos(bot, update, "https://t.me/testberuny/23", "Matematika", "Isroil Tillaboyev")
+	elif query.data == "mt4":
+		send_videos(bot, update, "https://t.me/testberuny/24", "Matematika", "Isroil Tillaboyev")
+	elif query.data == "mt5":
+		send_videos(bot, update, "https://t.me/testberuny/25", "Matematika", "Isroil Tillaboyev")
 
 
 
