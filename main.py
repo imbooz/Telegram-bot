@@ -28,7 +28,8 @@ u_id = 12
 def start(bot, update):
 	keyboard = [
 		[KeyboardButton("Til kurslari 📚"), KeyboardButton("Dasturlash kurslari 👨🏻‍💻")],
-		[KeyboardButton("Adminlar bilan bog'lanish")]
+		[KeyboardButton("Mathematics 🧮")],
+		[KeyboardButton("Adminlar bilan bog'lanish"),]
 	]
 	reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 	welcome_txt = "Salom! 👋\n\nBeruny Academy rasmiy botiga xush kelibsiz, sizni bu yerda ko'rganimdan mamnunman! 🤝 \n\n"\
@@ -359,7 +360,7 @@ def tanlovlar(bot, update):
 	msg_txt = update.message.text
 	global feedback_id
 	global u_id
-	omitted_words = ["Bekor qilish", "Til kurslari 📚", "Dasturlash kurslari 👨🏻‍💻", "Adminlar bilan bog'lanish"]
+	omitted_words = ["Bekor qilish", "Mathematics 🧮", "Til kurslari 📚", "Dasturlash kurslari 👨🏻‍💻", "Adminlar bilan bog'lanish"]
 
 	if (update.message.message_id - 2) >= feedback_id and u_id == update.message.from_user.id and msg_txt not in omitted_words:
 
